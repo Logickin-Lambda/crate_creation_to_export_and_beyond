@@ -1,19 +1,10 @@
 #[cfg(test)]
+mod testing_utils;
+
 mod n_square_algo_test{
 
     use crate_creation_to_export_and_beyond::n_square;
-    use rand::Rng;
-
-    fn random_array_generator(size: i32) -> Vec<i32>{
-        
-        let mut result: Vec<i32> = Vec::new();
-
-        for _ in 0..size {
-            result.push(rand::thread_rng().gen_range(0..999));
-        }
-
-        result
-    }
+    use crate::testing_utils::array_generators::{generate_random_n_ctrl};
 
     #[test]
     fn dummy_test() {
@@ -25,13 +16,11 @@ mod n_square_algo_test{
     fn bubble_sort_test(){
         // Random array test
         for i in 0..64 {
-            let input = random_array_generator(16 << (i % 7));
-            let mut target = input.clone();
-            
-            let output = n_square::bubble_sort(&input);
-            target.sort(); // control test, using the original timsort from rust for comparison
+
+            let test_data_rnd = generate_random_n_ctrl(16 << (i % 7));
+            let rand_arr_test = n_square::bubble_sort(&test_data_rnd.testing);
     
-            assert_eq!(output, target);
+            assert_eq!(test_data_rnd.control, rand_arr_test);
         }
     }
     
@@ -39,13 +28,11 @@ mod n_square_algo_test{
     fn insertion_sort_test(){
         // Random array test
         for i in 0..64{
-            let input = random_array_generator(16 << (i % 7));
-            let mut target = input.clone();
-            
-            let output = n_square::insertion_sort(&input);
-            target.sort(); // control test, using the original timsort from rust for comparison
+
+            let test_data_rnd = generate_random_n_ctrl(16 << (i % 7));
+            let rand_arr_test = n_square::insertion_sort(&test_data_rnd.testing);
     
-            assert_eq!(output, target);
+            assert_eq!(test_data_rnd.control, rand_arr_test);
         }
     }
 
@@ -53,13 +40,11 @@ mod n_square_algo_test{
     fn insertion_sort_unstable_test(){
         // Random array test
         for i in 0..64{
-            let input = random_array_generator(16 << (i % 7));
-            let mut target = input.clone();
-            
-            let output = n_square::insertion_sort_unstable(&input);
-            target.sort(); // control test, using the original timsort from rust for comparison
+
+            let test_data_rnd = generate_random_n_ctrl(16 << (i % 7));
+            let rand_arr_test = n_square::insertion_sort_unstable(&test_data_rnd.testing);
     
-            assert_eq!(output, target);
+            assert_eq!(test_data_rnd.control, rand_arr_test);
         }
     }
 }

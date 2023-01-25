@@ -1,6 +1,6 @@
 #![allow(unused)] // to ignore unused warnings to make the error log easier to read
 
-// This project is made for learning how to crate a library aka crate and export to crates.io
+// This project is made for learning how to crate a library aka crate and export to crates.io (in addition to practice sorting algos)
 // The goal of this project is to undersand how to build a simple function using external crate, modules and any C library (.c/.dll/.so)
 // and use the library from other project by injecting the dependency.
 // 

@@ -18,6 +18,8 @@ impl PartitionPair{
  * then returns the index of the privot point, and the updated array with the partially sorted version.
  * 
  * return: pivot index in usize and partially sorted array inside a tuple
+ * 
+ * This quick sort is a mess due to lack of understanding of &mut; I will update it in future once I have complete O(n) algos
  */
 fn partitioning(unprocessed_array: &mut &Vec<i32>, start: usize, end: usize) -> (usize, Vec<i32>) {
 
