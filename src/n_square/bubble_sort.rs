@@ -1,4 +1,6 @@
-pub fn bubble_sort ( input: &Vec<i32> ) -> Vec<i32> {
+pub fn bubble_sort<T> ( input: &Vec<T> ) -> Vec<T> 
+where T: Clone + PartialOrd
+{
     
     let mut output = input.clone();
 

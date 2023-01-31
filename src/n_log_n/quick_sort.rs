@@ -1,4 +1,5 @@
 // It is not necessary to have the struct, but I want to learn a little about how to actually implement one with implementations
+#[derive(Debug, Clone, Copy, PartialEq, PartialOrd)]
 struct PartitionPair{
     start: usize,
     end: usize
@@ -21,13 +22,15 @@ impl PartitionPair{
  * 
  * This quick sort is a mess due to lack of understanding of &mut; I will update it in future once I have complete O(n) algos
  */
-fn partitioning(unprocessed_array: &mut &Vec<i32>, start: usize, end: usize) -> (usize, Vec<i32>) {
+fn partitioning<T>(unprocessed_array: &mut &Vec<T>, start: usize, end: usize) -> (usize, Vec<T>)
+where T: Clone + Copy + PartialOrd
+{
 
     // Define where is the part we need to sort for this ieteration, and which is not so that we can construct a complete array
-    let mut high_part = Vec::<i32>::new();
-    let mut low_part  = Vec::<i32>::new();
-    let mut unsort_low_part = Vec::<i32>::new();
-    let mut unsort_high_part = Vec::<i32>::new();
+    let mut high_part = Vec::<T>::new();
+    let mut low_part  = Vec::<T>::new();
+    let mut unsort_low_part = Vec::<T>::new();
+    let mut unsort_high_part = Vec::<T>::new();
 
     let pivot = unprocessed_array [start];
     let ranged_array = &unprocessed_array[start..=end];
@@ -48,7 +51,7 @@ fn partitioning(unprocessed_array: &mut &Vec<i32>, start: usize, end: usize) -> 
     // Summarise every piece of information for next iteration
     let low_part_cnt = low_part.len();
 
-    let mut partially_sorted_array = Vec::<i32>::new();
+    let mut partially_sorted_array = Vec::<T>::new();
     partially_sorted_array.append(&mut unsort_low_part);
     partially_sorted_array.append(&mut low_part);
     partially_sorted_array.append(&mut high_part);
@@ -58,7 +61,9 @@ fn partitioning(unprocessed_array: &mut &Vec<i32>, start: usize, end: usize) -> 
     (start + low_part_cnt, partially_sorted_array)
 }
 
-pub fn quick_sort(input: &Vec<i32>) -> Vec<i32>{
+pub fn quick_sort<T>(input: &Vec<T>) -> Vec<T>
+where T: Clone + Copy + PartialOrd
+{
 
     let mut output = input.clone();
 

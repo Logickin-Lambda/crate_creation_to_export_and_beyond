@@ -1,6 +1,8 @@
 use std::ops::{Range};
 
-pub fn merge_sort(input: &Vec<i32>) -> Vec<i32> {
+pub fn merge_sort<T>(input: &Vec<T>) -> Vec<T> 
+where T: Clone + Copy + PartialOrd
+{
 
     let mut segment_size = 2;
     let mut input_clone = input.clone();
@@ -15,7 +17,7 @@ pub fn merge_sort(input: &Vec<i32>) -> Vec<i32> {
             let list_r_start = (idx - (segment_size / 2)).clamp(0, input.len());
             let list_r_end = idx.clamp(0, input.len());
 
-            input_clone = merge(&mut input_clone, list_l_start..list_r_start, list_r_start..list_r_end);
+            merge(&mut input_clone, list_l_start..list_r_start, list_r_start..list_r_end);
             
             idx += segment_size;
         }
@@ -26,7 +28,9 @@ pub fn merge_sort(input: &Vec<i32>) -> Vec<i32> {
     input_clone
 }
 
-fn merge(input: &mut Vec<i32>, list_l_rng: Range<usize>, list_r_rng: Range<usize>) -> Vec<i32>{
+fn merge<T>(input: &mut Vec<T>, list_l_rng: Range<usize>, list_r_rng: Range<usize>)
+where T: Clone + Copy + PartialOrd
+{
 
     let list_l = &input.clone()[list_l_rng.clone()];
     let list_r = &input.clone()[list_r_rng.clone()];
@@ -54,6 +58,4 @@ fn merge(input: &mut Vec<i32>, list_l_rng: Range<usize>, list_r_rng: Range<usize
 
         }
     }
-
-    input.to_vec()
 }

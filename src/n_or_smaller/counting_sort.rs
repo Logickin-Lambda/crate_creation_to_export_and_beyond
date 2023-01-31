@@ -1,4 +1,4 @@
-pub fn counting_sort(input: &Vec<i32>) -> Vec<i32>{
+pub fn counting_sort(input: &Vec<i32>) -> Vec<i32>{     // I don't have any idea for generic numeral counting sort for now.
 
     let max_number = *input.iter().max().unwrap_or(&0) as usize + 1;
     let mut counter_vec = vec![0; max_number];

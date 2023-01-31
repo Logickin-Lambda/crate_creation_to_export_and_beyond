@@ -3,7 +3,7 @@ mod testing_utils;
 
 mod n_log_n_algo_test{
     use crate_creation_to_export_and_beyond::n_log_n;
-    use crate::testing_utils::array_generators::{generate_random_n_ctrl, generate_nearly_sort_at_back_n_ctrl};
+    use crate::testing_utils::array_generators::*;
     
     #[test]
     fn test_quick_sort(){

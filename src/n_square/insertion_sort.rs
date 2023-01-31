@@ -1,4 +1,6 @@
-pub fn insertion_sort(input :&Vec<i32>) -> Vec<i32>{
+pub fn insertion_sort<T>(input :&Vec<T>) -> Vec<T>
+where T: Clone + PartialOrd
+{
     let mut output = input.clone();
 
     for i in 0..output.len(){
@@ -11,8 +13,10 @@ pub fn insertion_sort(input :&Vec<i32>) -> Vec<i32>{
     output
 }
 
-pub fn insertion_sort_unstable(input :&Vec<i32>) -> Vec<i32>{
-    let mut output = Vec::<i32>::new();
+pub fn insertion_sort_unstable<T>(input :&Vec<T>) -> Vec<T>
+where T: Clone + Copy + PartialOrd
+{
+    let mut output = Vec::<T>::new();
 
     for i in 0..input.len(){
         let index = find_insert_index_by_binary_search(&output, input[i]);
@@ -29,7 +33,9 @@ pub fn insertion_sort_unstable(input :&Vec<i32>) -> Vec<i32>{
     output
 }
 
-fn find_insert_index_by_binary_search (sorted_section :&Vec<i32>, current_num: i32) -> usize{
+fn find_insert_index_by_binary_search<T>(sorted_section :&Vec<T>, current_num: T) -> usize
+where T: Clone + PartialOrd
+{
 
     if sorted_section.len() == 0{
         return 0;

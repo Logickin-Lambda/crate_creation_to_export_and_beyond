@@ -1,4 +1,6 @@
-pub fn selection_sort(input: &Vec<i32>) -> Vec<i32> {
+pub fn selection_sort<T>(input: &Vec<T>) -> Vec<T> 
+where T: Clone + PartialOrd
+{
     
     let mut sorted = input.clone();
 
