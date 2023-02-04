@@ -1,4 +1,5 @@
-pub fn counting_sort(input: &Vec<i32>) -> Vec<i32>{     // I don't have any idea for generic numeral counting sort for now.
+// no numeric generics for now until I have learnt unsafe rust
+pub fn counting_sort(input: &Vec<i32>) -> Vec<i32>{
 
     let max_number = *input.iter().max().unwrap_or(&0) as usize + 1;
     let mut counter_vec = vec![0; max_number];
