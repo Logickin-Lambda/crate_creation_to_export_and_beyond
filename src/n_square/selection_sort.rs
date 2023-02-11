@@ -1,3 +1,14 @@
+/// Selection sort picks the smallest item to the next most part of the array.
+///
+/// # Examples
+/// ```
+/// use crate_creation_to_export_and_beyond::n_square;
+/// 
+/// let arg = vec![6,1,8,2,9];
+/// let result = n_square::selection_sort(&arg);
+/// 
+/// assert_eq!(result, vec![1,2,6,8,9]);
+/// ```
 pub fn selection_sort<T>(input: &Vec<T>) -> Vec<T> 
 where T: Clone + PartialOrd
 {

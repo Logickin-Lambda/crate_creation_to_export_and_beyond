@@ -7,7 +7,7 @@
 // This crate is only used for learning purpose from building a library to writing docs, so please DON'T use this crate for own project.
 // There are a few simple sorting algos for Vec of i32 in this package and there are some testing and branchmark script
 // I will import a few c / dll / and so files to test how to add c code into the library
-use crate_creation_to_export_and_beyond::bubble_sort::bubble_sort;
+use crate_creation_to_export_and_beyond::n_square::*;
 
 fn main() {
     println!("The library in action");

@@ -20,7 +20,8 @@ impl PartitionPair{
  * 
  * return: pivot index in usize and partially sorted array inside a tuple
  * 
- * This quick sort is a mess due to lack of understanding of &mut; I will update it in future once I have complete O(n) algos
+ * This quick sort is a mess due to lack of understanding of &mut; I will update it in future;
+ * however, this is a good opportunity to test about updating crates into crate.io
  */
 fn partitioning<T>(unprocessed_array: &mut &Vec<T>, start: usize, end: usize) -> (usize, Vec<T>)
 where T: Clone + Copy + PartialOrd
@@ -61,6 +62,21 @@ where T: Clone + Copy + PartialOrd
     (start + low_part_cnt, partially_sorted_array)
 }
 
+
+/// Quick sort sorts array by picking the first item of the unsort array and used the item as a privot,
+/// then use the privot to split the unsorted array into two sub array, which one of them contains items smaller then the privot,
+/// while other array contains the larger values.
+/// 
+/// # Example
+/// ```
+/// use crate_creation_to_export_and_beyond::n_log_n;
+/// 
+/// let arg = vec![6,1,8,2,9];
+/// let result = n_log_n::quick_sort(&arg);
+/// 
+/// assert_eq!(result, vec![1,2,6,8,9]);
+/// 
+/// ```
 pub fn quick_sort<T>(input: &Vec<T>) -> Vec<T>
 where T: Clone + Copy + PartialOrd
 {

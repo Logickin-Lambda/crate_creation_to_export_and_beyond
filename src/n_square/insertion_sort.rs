@@ -1,3 +1,15 @@
+/// Insertion sort pushs the current item to the sorted part of the array, located at the left.
+/// The current item is stopped being pushed when there is an element smaller than the current item in the sorted part.
+///
+/// # Examples
+/// ```
+/// use crate_creation_to_export_and_beyond::n_square;
+/// 
+/// let arg = vec![6,1,8,2,9];
+/// let result = n_square::insertion_sort(&arg);
+/// 
+/// assert_eq!(result, vec![1,2,6,8,9]);
+/// ```
 pub fn insertion_sort<T>(input :&Vec<T>) -> Vec<T>
 where T: Clone + PartialOrd
 {
@@ -13,6 +25,18 @@ where T: Clone + PartialOrd
     output
 }
 
+/// Similar to the normal insertion sort, but it use binary search instead of pushing element to the right.
+/// It is unstable becuase this function scrambles the duplicated items with the binary search which the search location is not precise. 
+///
+/// # Examples
+/// ```
+/// use crate_creation_to_export_and_beyond::n_square;
+/// 
+/// let arg = vec![6,1,8,2,9];
+/// let result = n_square::insertion_sort_unstable(&arg);
+/// 
+/// assert_eq!(result, vec![1,2,6,8,9]);
+/// ```
 pub fn insertion_sort_unstable<T>(input :&Vec<T>) -> Vec<T>
 where T: Clone + Copy + PartialOrd
 {

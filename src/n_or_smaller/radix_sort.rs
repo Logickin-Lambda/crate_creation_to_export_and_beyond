@@ -15,6 +15,21 @@ pub fn radix_sort(input: &Vec<i32>) -> Vec<i32>{
     output
 }
 
+
+/// Similar to counting sort, it sorts by counting,
+/// but instead of counting the whole number, it sorts thing in individual digits.
+/// 
+/// However, radix sort cannot support generics and negative numbers.
+/// # Examples
+/// ```
+/// use crate_creation_to_export_and_beyond::n_or_smaller;
+/// 
+/// let arg = vec![6,1,8,2,9];
+/// let result = n_or_smaller::counting_sort(&arg);
+/// 
+/// assert_eq!(result, vec![1,2,6,8,9]);
+/// 
+/// ``
 fn internal_counting_sort(input: &mut Vec<i32>, sig_digs: i32){
 
     let input_clone = input.clone();

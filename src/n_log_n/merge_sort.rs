@@ -1,5 +1,26 @@
 use std::ops::{Range};
 
+/// Merge sort sorts thing by spliting the unsorted list into smaller sublist;
+/// it groups the sublist by pairs then merging the them with taking the priority of smaller elements in one of the sublist.
+/// 
+/// For example, if the current sublist are [5, 7] [1, 8], the merge sequence will be the following:
+/// ```
+/// // [5, 7] [1, 8] -> []
+/// // [5, 7] [8]    -> [1]
+/// // [7] [8]       -> [1, 5]
+/// // [] [8]        -> [1, 5, 7]
+/// // [] []         -> [1, 5, 7, 8]
+/// ```
+/// # Examples
+/// ```
+/// use crate_creation_to_export_and_beyond::n_log_n;
+/// 
+/// let arg = vec![6,1,8,2,9];
+/// let result = n_log_n::merge_sort(&arg);
+/// 
+/// assert_eq!(result, vec![1,2,6,8,9]);
+/// 
+/// ```
 pub fn merge_sort<T>(input: &Vec<T>) -> Vec<T> 
 where T: Clone + Copy + PartialOrd
 {
