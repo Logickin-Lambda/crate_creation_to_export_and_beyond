@@ -2,6 +2,8 @@
 name = "crate_creation_to_export_and_beyond"
 version = "0.1.0"
 edition = "2021"
+license = "MIT"
+description = "Learn to build a crate for other projects"
 
 # [lib]
 # name = "crate_creation_to_export_and_beyond"           # The name of the target.
