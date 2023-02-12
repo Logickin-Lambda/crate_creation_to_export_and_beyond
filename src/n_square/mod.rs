@@ -1,3 +1,5 @@
+//! They are the slower algorithms, but these functions actually offer better perfomance over small set of items
+//! because they generally have a much simpler structure to do swap quicker than the more complex functions.
 pub mod bubble_sort;
 pub mod insertion_sort;
 pub mod selection_sort;

@@ -4,12 +4,12 @@ use std::ops::{Range};
 /// it groups the sublist by pairs then merging the them with taking the priority of smaller elements in one of the sublist.
 /// 
 /// For example, if the current sublist are [5, 7] [1, 8], the merge sequence will be the following:
-/// ```
-/// // [5, 7] [1, 8] -> []
-/// // [5, 7] [8]    -> [1]
-/// // [7] [8]       -> [1, 5]
-/// // [] [8]        -> [1, 5, 7]
-/// // [] []         -> [1, 5, 7, 8]
+/// ```text
+/// [5, 7] [1, 8] -> []
+/// [5, 7] [8]    -> [1]
+/// [7] [8]       -> [1, 5]
+/// [] [8]        -> [1, 5, 7]
+/// [] []         -> [1, 5, 7, 8]
 /// ```
 /// # Examples
 /// ```
